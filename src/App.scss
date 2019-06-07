@@ -135,17 +135,27 @@ header.header {
 }
 
 // HOME PAGE VIGNETTE LAYOUT
-.vignettes {
-  margin: 220px auto;
-  width: 700px;
-  .vignette {
-    margin: -100px 0;
+.vignette {
+  margin: 8rem 2rem;
+  width: calc(100% - 4rem);
+  img {
+    max-width: 100%;
   }
-  .vignette:nth-child(odd) {
-    transform: translateX(-300px);
-  }
-  .vignette:nth-child(even) {
-    transform: translateX(300px);
+}
+@media screen and (min-width: 64rem) {
+  .vignettes {
+    margin: 220px auto;
+    width: 700px;
+    .vignette {
+      margin: -100px 0;
+      width: 100%;
+    }
+    .vignette:nth-child(odd) {
+      transform: translateX(-300px);
+    }
+    .vignette:nth-child(even) {
+      transform: translateX(300px);
+    }
   }
 }
 
@@ -153,7 +163,7 @@ header.header {
 .bigCtaBlock {
   padding: 4rem 0;
   background-image: url('/img/blob-background.svg');
-  background-size: contain;
+  background-size: cover;
   text-align: center;
   color: $secondary-color;
   h2,
