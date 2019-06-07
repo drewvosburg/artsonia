@@ -1,0 +1,42 @@
+// COLOR DEFINITIONS
+$gray1: #111214;
+$gray2: #3e4049;
+$gray3: #84858b;
+$gray4: #cacacd;
+$gray5: #ededee;
+$gray6: #fdfdfd;
+$yellow: #ffd774;
+$lightYellow: #fff0cc;
+$red: #e05263;
+$redTint: #f9dfe2;
+$maroon: #ab4e68;
+$maroonTint: #efdee3;
+$brown: #b07156;
+$lightBrown: #e9d8d0;
+$green: #3ab795;
+$lightGreen: #b7e4d8;
+$peach: #ffcab1;
+$lightPeach: #fff0e9;
+$slateBlue: #4b5f78;
+$lightSlateBlue: #bdc4cd;
+$indigo: #29339b;
+$lightIndigo: #d8d9ec;
+
+// CODE-USE COLORS
+$text-color: $gray1;
+$dark-color: $gray2;
+$midtone-color: $gray3;
+$light-color: $gray5;
+$bright-color: $gray6;
+$primary-color: $green;
+$secondary-color: $indigo;
+$tertiary-color: $maroon;
+$warning-color: $red;
+$alert-color: $yellow;
+
+// SHADOWS
+$thinner-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+$base-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+$thicker-shadow: 0px 8px 12px rgba(0, 0, 0, 0.16);
+$thickest-shadow: 0px 16px 16px rgba(0, 0, 0, 0.16), 0px 1px 6px rgba(0, 0, 0, 0.1);
+$focus: 0px 4px 10px rgba($primary-color, 0.5);

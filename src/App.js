@@ -1,8 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react'
+import logo from './logo.svg'
+import './App.scss'
 
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition } from 'react-transition-group'
 
 function Vignette(props) {
   return (
@@ -13,11 +13,11 @@ function Vignette(props) {
         <a href={props.linkHref}>{props.callToAction}</a>
       </h4>
     </div>
-  );
+  )
 }
 
 function Logo(props) {
-  return <img src="logo.svg" className="logo" alt="Artsonia" />;
+  return <img src="logo.svg" className="logo" alt="Artsonia" />
 }
 function LeftNav(props) {
   return (
@@ -25,7 +25,7 @@ function LeftNav(props) {
       <a href="">Explore</a>
       <a href="">Shop</a>
     </nav>
-  );
+  )
 }
 function RightNav(props) {
   return (
@@ -34,18 +34,13 @@ function RightNav(props) {
       <a href="">How It Works</a>
       <button onClick={props.handleToggleModal}>Login</button>
     </nav>
-  );
+  )
 }
 function SearchGlobal(props) {
   return (
     <div className="globalSearch">
       <input type="search" placeholder="Search schools or students" />
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="none"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
         <path
           fill="#84858B"
           fill-rule="evenodd"
@@ -54,7 +49,7 @@ function SearchGlobal(props) {
         />
       </svg>
     </div>
-  );
+  )
 }
 function Header(props) {
   return (
@@ -64,16 +59,16 @@ function Header(props) {
       <SearchGlobal />
       <RightNav handleToggleModal={props.handleToggleModal} />
     </header>
-  );
+  )
 }
 function SocialIcons(props) {
-  let iconElements = [];
+  let iconElements = []
   // if (props.icons) {
   //   props.icons.forEach(element){
   //     iconElements.push(<a href={element.href}><img src={element.iconSrc} alt={element.socialName} /></a>)
   //   })
   // }
-  return <div>{iconElements}</div>;
+  return <div>{iconElements}</div>
 }
 function Footer(props) {
   return (
@@ -94,7 +89,7 @@ function Footer(props) {
       </nav>
       <SocialIcons />
     </div>
-  );
+  )
 }
 function Hero(props) {
   return (
@@ -105,7 +100,7 @@ function Hero(props) {
         All with <span>Artsonia.</span>
       </h1>
     </div>
-  );
+  )
 }
 function BigCtaBlock(props) {
   return (
@@ -115,19 +110,19 @@ function BigCtaBlock(props) {
       <h3>
         <a href={props.cta1Href}>
           <button>{props.cta1}</button>
-        </a>{" "}
+        </a>{' '}
         or
         <a href={props.cta2Href}>
           <button>{props.cta2}</button>
         </a>
       </h3>
     </div>
-  );
+  )
 }
 function ArtworkCarouselArtwork(props) {
-  let nameAndGrade = props.artistName;
+  let nameAndGrade = props.artistName
   if (props.artistName && props.artistGrade) {
-    nameAndGrade = props.artistName + ", " + props.artistGrade;
+    nameAndGrade = props.artistName + ', ' + props.artistGrade
   }
   return (
     <div>
@@ -138,11 +133,11 @@ function ArtworkCarouselArtwork(props) {
         <h4>&ldquo;{props.artworkTitle}&rdquo;</h4>
       </div>
     </div>
-  );
+  )
 }
 function ArtworkCarousel(props) {
-  let artworks = [];
-  let navigation;
+  let artworks = []
+  let navigation
   // if (props.artworks) {
   //   props.artworks.forEach(element){
   //     artworks.push(<ArtworkCarouselArtwork artworkTitle={element.artworkTitle} artistGrade={element.artistGrade} artistName={element.artistName} artistSchool={element.artistSchool} src={element.src} />)
@@ -155,39 +150,39 @@ function ArtworkCarousel(props) {
       {artworks}
       {navigation}
     </div>
-  );
+  )
 }
 function ArtistOfTheWeek(props) {
   var artworks = [
     {
-      artistName: "America",
-      src: "",
-      artistGrade: "1st Grade",
-      artistSchool: "La Cañada High School",
-      artworkTitle: "Rainbow Watercolors"
+      artistName: 'America',
+      src: '',
+      artistGrade: '1st Grade',
+      artistSchool: 'La Cañada High School',
+      artworkTitle: 'Rainbow Watercolors'
     },
     {
-      artistName: "Greg",
-      src: "",
-      artistGrade: "1st Grade",
-      artistSchool: "Thompson Elementary School",
-      artworkTitle: "Fun fun times"
+      artistName: 'Greg',
+      src: '',
+      artistGrade: '1st Grade',
+      artistSchool: 'Thompson Elementary School',
+      artworkTitle: 'Fun fun times'
     },
     {
-      artistName: "Greg",
-      src: "",
-      artistGrade: "1st Grade",
-      artistSchool: "Thompson Elementary School",
-      artworkTitle: "Fun fun times"
+      artistName: 'Greg',
+      src: '',
+      artistGrade: '1st Grade',
+      artistSchool: 'Thompson Elementary School',
+      artworkTitle: 'Fun fun times'
     },
     {
-      artistName: "Greg",
-      src: "",
-      artistGrade: "1st Grade",
-      artistSchool: "Thompson Elementary School",
-      artworkTitle: "Fun fun times"
+      artistName: 'Greg',
+      src: '',
+      artistGrade: '1st Grade',
+      artistSchool: 'Thompson Elementary School',
+      artworkTitle: 'Fun fun times'
     }
-  ];
+  ]
   return (
     <div>
       <h2>Artist of the Week</h2>
@@ -195,37 +190,29 @@ function ArtistOfTheWeek(props) {
       <ArtworkCarousel artworks={artworks} />
       <button>Vote Now!</button>
     </div>
-  );
+  )
 }
 
 function Modal(props) {
-  const customClasses = !props.modalState ? "isClosed" : "isOpen";
+  const customClasses = !props.modalState ? 'isClosed' : 'isOpen'
   return (
     <div className="modal" onClick={props.handleToggleModal}>
       <h1>MODALLY RAD</h1>
     </div>
-  );
+  )
 }
 class App extends React.Component {
   state = {
     modalIsOpen: false
-  };
+  }
   toggleModal = () => {
-    this.setState({ modalIsOpen: !this.state.modalIsOpen });
-  };
+    this.setState({ modalIsOpen: !this.state.modalIsOpen })
+  }
   render() {
     return (
       <div>
-        <CSSTransition
-          in={this.state.modalIsOpen}
-          timeout={300}
-          classNames="alert"
-          unmountOnExit="true"
-        >
-          <Modal
-            handleToggleModal={this.toggleModal}
-            modalState={this.state.modalIsOpen}
-          />
+        <CSSTransition in={this.state.modalIsOpen} timeout={300} classNames="alert" unmountOnExit="true">
+          <Modal handleToggleModal={this.toggleModal} modalState={this.state.modalIsOpen} />
         </CSSTransition>
         <Header handleToggleModal={this.toggleModal} />
         <Hero />
@@ -267,8 +254,8 @@ class App extends React.Component {
         <ArtistOfTheWeek />
         <Footer />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
