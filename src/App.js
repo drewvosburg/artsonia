@@ -100,13 +100,9 @@ function BigCtaBlock(props) {
       <h2>{props.title}</h2>
       <p>{props.description}</p>
       <h3 className="ctas">
-        <button onClick={`location.href=` + props.cta1Href} className="hollow">
-          {props.cta1}
-        </button>
+        <button className="hollow">{props.cta1}</button>
         or
-        <button onClick={`location.href=` + props.cta2Href} className="filled">
-          {props.cta2}
-        </button>
+        <button className="filled">{props.cta2}</button>
       </h3>
     </div>
   )
