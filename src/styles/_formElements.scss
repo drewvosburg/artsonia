@@ -34,4 +34,40 @@
     transform: translateY(-1px);
   }
 }
+@mixin rounded-button {
+  @include button-reset;
+  color: $primary-color;
+  border: 2px solid;
+  // Here's a fun trick, this rounds it without distorting like a percentage would
+  border-radius: 100000px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.125s;
+  &:focus {
+    @include focus($secondary-color);
+  }
+  &:hover {
+    @include focus($secondary-color) transform: translateY(-1px);
+  }
+}
 
+@mixin tertiary-button {
+  @include rounded-button;
+  color: $secondary-color;
+  @include h4-font-family;
+  @include h4-font-weight;
+  @include h4-font-style;
+  @include h4-font-size;
+  @include h4-letter-spacing;
+  @include h4-text-transform;
+  @include h4-text-decoration;
+  line-height: 2rem;
+  height: 4rem;
+  padding: 14px 3rem;
+}
+@mixin tertiary-filled-button {
+  @include tertiary-button;
+  color: $bright-color;
+  border-color: $secondary-color;
+  background: $secondary-color;
+}

@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group'
 
 function Vignette(props) {
   return (
-    <div>
+    <div className="vignette">
       <img src={props.imgSrc} alt={props.imgAltText} />
       <h3>{props.title}</h3>
       <h4>
@@ -16,7 +16,7 @@ function Vignette(props) {
 }
 
 function Logo(props) {
-  return <img src="logo.svg" className="logo" alt="Artsonia" />
+  return <img src="img/logo.svg" className="logo" alt="Artsonia" />
 }
 function SearchGlobal(props) {
   return (
@@ -64,13 +64,13 @@ function SocialIcons(props) {
 }
 function Footer(props) {
   return (
-    <div>
-      <div>
+    <footer className="footer">
+      <div className="section1">
         <Logo />
-        <h4>Address</h4>
-        <h4>Phone Number</h4>
+        <h4>1350 Tri State Pkwy # 106</h4>
+        <h4>(800) 869-9974</h4>
       </div>
-      <nav>
+      <nav className="section2">
         <a href="#">Explore</a>
         <a href="#">Shop</a>
         <a href="#">About Us</a>
@@ -80,7 +80,7 @@ function Footer(props) {
         <a href="#">Privacy</a>
       </nav>
       <SocialIcons />
-    </div>
+    </footer>
   )
 }
 function Hero(props) {
@@ -89,24 +89,24 @@ function Hero(props) {
       <h1>Digitize portfolios.</h1>
       <h1>Turn art into keepsakes.</h1>
       <h1>
-        All with <span>Artsonia.</span>
+        All with <span className="hero-word">Artsonia.</span>
       </h1>
     </div>
   )
 }
 function BigCtaBlock(props) {
   return (
-    <div>
+    <div className="bigCtaBlock">
       <h2>{props.title}</h2>
       <p>{props.description}</p>
-      <h3>
-        <a href={props.cta1Href}>
-          <button>{props.cta1}</button>
-        </a>{' '}
+      <h3 className="ctas">
+        <button onClick={`location.href=` + props.cta1Href} className="hollow">
+          {props.cta1}
+        </button>
         or
-        <a href={props.cta2Href}>
-          <button>{props.cta2}</button>
-        </a>
+        <button onClick={`location.href=` + props.cta2Href} className="filled">
+          {props.cta2}
+        </button>
       </h3>
     </div>
   )
@@ -216,39 +216,41 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <CSSTransition in={this.state.modalIsOpen} timeout={300} classNames="alert" unmountOnExit>
+        <CSSTransition in={this.state.modalIsOpen} timeout={300} classNames="modal" unmountOnExit>
           <Modal handleToggleModal={this.toggleModal} modalState={this.state.modalIsOpen} />
         </CSSTransition>
         <Header handleToggleModal={this.toggleModal} />
         <Hero />
-        <Vignette
-          imgSrc="abc"
-          imgAltText="Illustration"
-          title="Upload and edit student art to perfection"
-          linkHref="#"
-          callToAction="See How It Works"
-        />
-        <Vignette
-          imgSrc="abc"
-          imgAltText="Illustration"
-          title="Publish digital portfolios from school or home"
-          linkHref="#"
-          callToAction="Explore Portfolios"
-        />
-        <Vignette
-          imgSrc="abc"
-          imgAltText="Illustration"
-          title="Purchase and personalize custom keepsakes"
-          linkHref="#"
-          callToAction="Go Shopping"
-        />
-        <Vignette
-          imgSrc="abc"
-          imgAltText="Illustration"
-          title="For every keepsake sold, we donate 20% to the school arts program"
-          linkHref="#"
-          callToAction="Learn About Us"
-        />
+        <div className="vignettes">
+          <Vignette
+            imgSrc="/img/illustration/upload-art.svg"
+            imgAltText="Teacher with tablet"
+            title="Upload and edit student art to perfection"
+            linkHref="#"
+            callToAction="See How It Works"
+          />
+          <Vignette
+            imgSrc="/img/illustration/publish-portfolios.svg"
+            imgAltText="Woman in front of artwork"
+            title="Publish digital portfolios from school or home"
+            linkHref="#"
+            callToAction="Explore Portfolios"
+          />
+          <Vignette
+            imgSrc="/img/illustration/purchase-keepsakes.svg"
+            imgAltText="Illustration"
+            title="Purchase and personalize custom keepsakes"
+            linkHref="#"
+            callToAction="Go Shopping"
+          />
+          <Vignette
+            imgSrc="/img/illustration/artist.svg"
+            imgAltText="Illustration"
+            title="For every keepsake sold, we donate 20% to the school arts program"
+            linkHref="#"
+            callToAction="Learn About Us"
+          />
+        </div>
         <BigCtaBlock
           title="Artsonia is even better when it's for you"
           description="Artsonia is the world's largest collection of student art, published by teachers and students from around the world."

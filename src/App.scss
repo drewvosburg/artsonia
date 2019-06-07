@@ -17,16 +17,18 @@ $display-font-fallback-fonts: Futura, Arial;
 // CUSTOM STYLED COMPONENTS
 header.header {
   position: fixed;
+  z-index: 2;
   display: flex;
   align-items: center;
   top: 0;
   width: 100%;
-  background: $lightGreen;
+  background: #d5ede9;
   height: 80px;
   padding: 0px 24px;
   box-sizing: border-box;
   .logo {
     max-height: 32px;
+    margin-right: 1rem;
   }
   nav {
     display: inline-block;
@@ -53,6 +55,7 @@ header.header {
   }
   .globalSearch {
     width: 30%;
+    max-width: 24rem;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -91,12 +94,128 @@ header.header {
 
 // HOME PAGE HERO
 .hero {
-  background: $lightGreen;
-  margin-top: 80px;
-  padding: 80px 0;
+  padding: 200px 0;
   text-align: center;
+  color: $primary-color;
+  background: bottom center no-repeat url('/img/pencils.jpg') #d5ede9;
+  .hero-word {
+    position: relative;
+    color: $bright-color;
+    z-index: 1;
+    margin-left: 0.25rem;
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      background-image: url('/img/splotch.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 4.5em;
+      height: 2em;
+      z-index: -1;
+      top: -0.15em;
+      left: -0.15em;
+    }
+  }
+}
+// VIGNETTES
+.vignette {
+  text-align: center;
+  h3 {
+    margin: 2rem auto 0.5rem auto;
+    max-width: 440px;
+  }
+  a {
+    color: $midtone-color;
+    transition: all 0.15s;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
 }
 
+// HOME PAGE VIGNETTE LAYOUT
+.vignettes {
+  margin: 220px auto;
+  width: 700px;
+  .vignette {
+    margin: -100px 0;
+  }
+  .vignette:nth-child(odd) {
+    transform: translateX(-300px);
+  }
+  .vignette:nth-child(even) {
+    transform: translateX(300px);
+  }
+}
+
+// BIG CTA SECTION
+.bigCtaBlock {
+  padding: 4rem 0;
+  background-image: url('/img/blob-background.svg');
+  background-size: contain;
+  text-align: center;
+  color: $secondary-color;
+  h2,
+  p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 450px;
+  }
+  h2 {
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 2rem;
+  }
+  button.hollow {
+    @include tertiary-button;
+  }
+  button.filled {
+    @include tertiary-filled-button;
+  }
+  .ctas {
+    button {
+      margin: 0 1rem;
+    }
+  }
+}
+
+// FOOTER
+footer.footer {
+  background: $lightIndigo;
+  padding: 4rem;
+  position: relative;
+  .section1 {
+    max-width: 250px;
+    .logo {
+      width: 10rem;
+      height: auto;
+      margin-bottom: 1.5rem;
+    }
+  }
+  .section2 {
+    width: 42rem;
+    position: absolute;
+    left: 50%;
+    top: 4rem;
+    transform: translateX(-50%);
+    a {
+      display: inline-block;
+      @include h4-font-family;
+      @include h4-font-weight;
+      @include h4-font-style;
+      @include h4-font-size;
+      @include h4-letter-spacing;
+      @include h4-text-transform;
+      @include h4-text-decoration;
+      width: 8rem;
+      text-align: left;
+      color: $text-color;
+      margin-bottom: 1rem;
+    }
+  }
+}
 // MODAL
 .modal {
   position: fixed;
@@ -135,7 +254,7 @@ header.header {
   transition: all 0.2s;
 }
 
-.alert-enter {
+.modal-enter {
   opacity: 0;
   pointer-events: none;
   h1 {
@@ -143,47 +262,25 @@ header.header {
     transition: transform 0.3s;
   }
 }
-.alert-enter-active {
+.modal-enter-active {
   opacity: 1;
   h1 {
     transform: translateZ(-1200px) rotateX(0deg) translateZ(1200px);
     transition: transform 0.3s;
   }
 }
-.alert-exit {
+.modal-exit {
   opacity: 1;
   h1 {
     transform: translateZ(-1200px) rotateX(0deg) translateZ(1200px);
     transition: transform 0.3s;
   }
 }
-.alert-exit-active {
+.modal-exit-active {
   opacity: 0;
   pointer-events: none;
   h1 {
     transform: translateZ(-1200px) rotateX(-3deg) translateZ(1200px);
     transition: transform 0.3s;
   }
-}
-
-.example-enter {
-  opacity: 0.01;
-  width: 0px;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  width: 100px;
-  transition: 700ms;
-}
-
-.example-leave {
-  opacity: 1;
-  width: 100px;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  width: 0px;
-  transition: 700ms;
 }
