@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.scss'
 
 import { CSSTransition } from 'react-transition-group'
@@ -26,9 +25,8 @@ function SearchGlobal(props) {
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
         <path
           fill="#84858B"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M11.3 6.1A5.1 5.1 0 1 1 1 6.1a5.1 5.1 0 0 1 10.3 0zm-1.6 5a6.1 6.1 0 1 1 1.4-1.4l.3.2 4.3 4.4a1 1 0 1 1-1.4 1.4l-4.4-4.3-.2-.3z"
-          clip-rule="evenodd"
         />
       </svg>
     </div>
@@ -39,13 +37,13 @@ function Header(props) {
     <header className="header">
       <Logo />
       <nav>
-        <a href="">Explore</a>
-        <a href="">Shop</a>
+        <a href="#">Explore</a>
+        <a href="#">Shop</a>
       </nav>
       <SearchGlobal />
       <nav className="rightNav">
-        <a href="">About Us</a>
-        <a href="">How It Works</a>
+        <a href="#">About Us</a>
+        <a href="#">How It Works</a>
         <button onClick={props.handleToggleModal}>Login</button>
       </nav>
     </header>
@@ -73,13 +71,13 @@ function Footer(props) {
         <h4>Phone Number</h4>
       </div>
       <nav>
-        <a href="">Explore</a>
-        <a href="">Shop</a>
-        <a href="">About Us</a>
-        <a href="">How It Works</a>
-        <a href="">Terms</a>
-        <a href="">Contact Us</a>
-        <a href="">Privacy</a>
+        <a href="#">Explore</a>
+        <a href="#">Shop</a>
+        <a href="#">About Us</a>
+        <a href="#">How It Works</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy</a>
       </nav>
       <SocialIcons />
     </div>
@@ -133,9 +131,10 @@ function ArtworkCarousel(props) {
   let artworks = []
   let navigation
   if (props.artworks) {
-    props.artworks.forEach(function(element) {
+    props.artworks.forEach(function(element, index) {
       artworks.push(
         <ArtworkCarouselArtwork
+          key={index}
           artworkTitle={element.artworkTitle}
           artistGrade={element.artistGrade}
           artistName={element.artistName}
@@ -217,7 +216,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <CSSTransition in={this.state.modalIsOpen} timeout={300} classNames="alert" unmountOnExit="true">
+        <CSSTransition in={this.state.modalIsOpen} timeout={300} classNames="alert" unmountOnExit>
           <Modal handleToggleModal={this.toggleModal} modalState={this.state.modalIsOpen} />
         </CSSTransition>
         <Header handleToggleModal={this.toggleModal} />
