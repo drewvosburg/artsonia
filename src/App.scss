@@ -14,7 +14,7 @@ $display-font-fallback-fonts: Futura, Arial;
 // FORM ELEMENTS
 @import 'styles/_formElements.scss';
 
-// AND NOW THIS
+// CUSTOM STYLED COMPONENTS
 header.header {
   position: fixed;
   display: flex;
@@ -88,12 +88,16 @@ header.header {
     box-shadow: $focus;
   }
 }
+
+// HOME PAGE HERO
 .hero {
   background: $lightGreen;
   margin-top: 80px;
   padding: 80px 0;
   text-align: center;
 }
+
+// MODAL
 .modal {
   position: fixed;
   top: 0;

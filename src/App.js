@@ -19,23 +19,6 @@ function Vignette(props) {
 function Logo(props) {
   return <img src="logo.svg" className="logo" alt="Artsonia" />
 }
-function LeftNav(props) {
-  return (
-    <nav>
-      <a href="">Explore</a>
-      <a href="">Shop</a>
-    </nav>
-  )
-}
-function RightNav(props) {
-  return (
-    <nav className="rightNav">
-      <a href="">About Us</a>
-      <a href="">How It Works</a>
-      <button onClick={props.handleToggleModal}>Login</button>
-    </nav>
-  )
-}
 function SearchGlobal(props) {
   return (
     <div className="globalSearch">
@@ -55,19 +38,30 @@ function Header(props) {
   return (
     <header className="header">
       <Logo />
-      <LeftNav />
+      <nav>
+        <a href="">Explore</a>
+        <a href="">Shop</a>
+      </nav>
       <SearchGlobal />
-      <RightNav handleToggleModal={props.handleToggleModal} />
+      <nav className="rightNav">
+        <a href="">About Us</a>
+        <a href="">How It Works</a>
+        <button onClick={props.handleToggleModal}>Login</button>
+      </nav>
     </header>
   )
 }
 function SocialIcons(props) {
   let iconElements = []
-  // if (props.icons) {
-  //   props.icons.forEach(element){
-  //     iconElements.push(<a href={element.href}><img src={element.iconSrc} alt={element.socialName} /></a>)
-  //   })
-  // }
+  if (props.icons) {
+    props.icons.forEach(function(element) {
+      iconElements.push(
+        <a href={element.href}>
+          <img src={element.iconSrc} alt={element.socialName} />
+        </a>
+      )
+    })
+  }
   return <div>{iconElements}</div>
 }
 function Footer(props) {
@@ -138,13 +132,25 @@ function ArtworkCarouselArtwork(props) {
 function ArtworkCarousel(props) {
   let artworks = []
   let navigation
-  // if (props.artworks) {
-  //   props.artworks.forEach(element){
-  //     artworks.push(<ArtworkCarouselArtwork artworkTitle={element.artworkTitle} artistGrade={element.artistGrade} artistName={element.artistName} artistSchool={element.artistSchool} src={element.src} />)
-  //   })
+  if (props.artworks) {
+    props.artworks.forEach(function(element) {
+      artworks.push(
+        <ArtworkCarouselArtwork
+          artworkTitle={element.artworkTitle}
+          artistGrade={element.artistGrade}
+          artistName={element.artistName}
+          artistSchool={element.artistSchool}
+          src={element.src}
+        />
+      )
+    })
 
-  //   navigation = <div><a href="#">Back</a> 1 of {props.artworks.length} <a href="#">Next</a></div>;
-  // }
+    navigation = (
+      <div>
+        <a href="#">Back</a> 1 of {props.artworks.length} <a href="#">Next</a>
+      </div>
+    )
+  }
   return (
     <div>
       {artworks}
